@@ -16,3 +16,6 @@ https://github.com/ailectra/kana-json
 
 anki-persistence
 https://github.com/SimonLammer/anki-persistenceanki-persistence
+
+MEMRISE KANJAX with KOOHI
+https://greasyfork.org/en/scripts/31169-memrise-kanjax-with-koohi-v3/code
