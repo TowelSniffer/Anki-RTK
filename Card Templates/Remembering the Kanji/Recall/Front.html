@@ -1,0 +1,2270 @@
+{{#HanziData}}
+<div class=frontbg>
+<span class= "huge">{{Keyword}}</span>
+
+<hr>
+
+<div id="kanji-container" class='center'>
+
+<svg style="background-color:#333B45!important" id="kanji-holder" xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+  <line x1="0" y1="0" x2="300" y2="300" stroke="gray" />
+  <line x1="300" y1="0" x2="0" y2="300" stroke="gray" />
+  <line x1="150" y1="0" x2="150" y2="300" stroke="gray" />
+  <line x1="0" y1="150" x2="300" y2="150" stroke="gray" />
+</svg>
+<br>
+      <button class="myButton" id='reset-button' onclick="window.onClick(writer.quiz({
+
+onComplete: function(summaryData) {
+setTimeout(function(){
+
+clickFunction();
+}, 200);
+
+
+},
+
+onCorrectStroke: function(strokeData) {strokeNum++;}
+
+}),strokeNum=0)">Reset</button>
+
+      <button class="myButton" id='reset-button' onclick="window.onClick(writer.highlightStroke(strokeNum, options = {}))">Show Hint</button>
+</div>
+</div>
+
+<div id="anki-am" data-name="Assets by ASSET MANAGER" data-version="2.1">
+    <script data-name="Prevent reinclusion" data-version="v0.1">
+        var ankiAms = document.querySelectorAll('#anki-am')
+          if (ankiAms.length > 1) {
+            for (const am of Array.from(ankiAms).slice(0, -1)) {
+              am.outerHTML = ''
+          }
+        }
+    </script>
+    <script data-name="Hanzi Writer " data-version="v3.0.2">
+        /**
+         * Hanzi Writer v3.0.2 | https://chanind.github.io/hanzi-writer
+         */
+        var __extends = (this && this.__extends) || (function () {
+            var extendStatics = function (d, b) {
+                extendStatics = Object.setPrototypeOf ||
+                    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+                    function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+                return extendStatics(d, b);
+            };
+            return function (d, b) {
+                extendStatics(d, b);
+                function __() { this.constructor = d; }
+                d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+            };
+        })();
+        var __assign = (this && this.__assign) || function () {
+            __assign = Object.assign || function(t) {
+                for (var s, i = 1, n = arguments.length; i < n; i++) {
+                    s = arguments[i];
+                    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                        t[p] = s[p];
+                }
+                return t;
+            };
+            return __assign.apply(this, arguments);
+        };
+        var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+            function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+            return new (P || (P = Promise))(function (resolve, reject) {
+                function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+                function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+                function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+                step((generator = generator.apply(thisArg, _arguments || [])).next());
+            });
+        };
+        var __generator = (this && this.__generator) || function (thisArg, body) {
+            var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+            return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+            function verb(n) { return function (v) { return step([n, v]); }; }
+            function step(op) {
+                if (f) throw new TypeError("Generator is already executing.");
+                while (_) try {
+                    if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+                    if (y = 0, t) op = [op[0] & 2, t.value];
+                    switch (op[0]) {
+                        case 0: case 1: t = op; break;
+                        case 4: _.label++; return { value: op[1], done: false };
+                        case 5: _.label++; y = op[1]; op = [0]; continue;
+                        case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                        default:
+                            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                            if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                            if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                            if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                            if (t[2]) _.ops.pop();
+                            _.trys.pop(); continue;
+                    }
+                    op = body.call(thisArg, _);
+                } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+                if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+            }
+        };
+        var __spreadArrays = (this && this.__spreadArrays) || function () {
+            for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+            for (var r = Array(s), k = 0, i = 0; i < il; i++)
+                for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+                    r[k] = a[j];
+            return r;
+        };
+        var HanziWriter = (function () {
+            'use strict';
+            var _a;
+            // hacky way to get around rollup not properly setting `global` to `window` in browser
+            var globalObj = typeof window === 'undefined' ? global : window;
+            var performanceNow = globalObj.performance && (function () { return globalObj.performance.now(); }) || (function () { return Date.now(); });
+            var requestAnimationFrame = globalObj.requestAnimationFrame || (function (callback) { return setTimeout(function () { return callback(performanceNow()); }, 1000 / 60); });
+            var cancelAnimationFrame = globalObj.cancelAnimationFrame || clearTimeout; // Object.assign polyfill, because IE :/
+            function arrLast(arr) {
+                return arr[arr.length - 1];
+            }
+            function copyAndMergeDeep(base, override) {
+                var output = __assign({}, base);
+                for (var key in override) {
+                    var baseVal = base[key];
+                    var overrideVal = override[key];
+                    if (baseVal === overrideVal) {
+                        continue;
+                    }
+                    if (baseVal && overrideVal && typeof baseVal === 'object' && typeof overrideVal === 'object' && !Array.isArray(overrideVal)) {
+                        output[key] = copyAndMergeDeep(baseVal, overrideVal);
+                    }
+                    else {
+                        // @ts-ignore
+                        output[key] = overrideVal;
+                    }
+                }
+                return output;
+            }
+            /** basically a simplified version of lodash.get, selects a key out of an object like 'a.b' from {a: {b: 7}} */
+            function inflate(scope, obj) {
+                var parts = scope.split('.');
+                var final = {};
+                var current = final;
+                for (var i = 0; i < parts.length; i++) {
+                    var cap = i === parts.length - 1 ? obj : {};
+                    current[parts[i]] = cap;
+                    current = cap;
+                }
+                return final;
+            }
+            var count = 0;
+            function counter() {
+                count++;
+                return count;
+            }
+            function average(arr) {
+                var sum = arr.reduce(function (acc, val) { return val + acc; }, 0);
+                return sum / arr.length;
+            }
+            function colorStringToVals(colorString) {
+                var normalizedColor = colorString.toUpperCase().trim(); // based on https://stackoverflow.com/a/21648508
+                if (/^#([A-F0-9]{3}){1,2}$/.test(normalizedColor)) {
+                    var hexParts = normalizedColor.substring(1).split('');
+                    if (hexParts.length === 3) {
+                        hexParts = [hexParts[0], hexParts[0], hexParts[1], hexParts[1], hexParts[2], hexParts[2]];
+                    }
+                    var hexStr = "" + hexParts.join('');
+                    return {
+                        r: parseInt(hexStr.slice(0, 2), 16),
+                        g: parseInt(hexStr.slice(2, 4), 16),
+                        b: parseInt(hexStr.slice(4, 6), 16),
+                        a: 1
+                    };
+                }
+                var rgbMatch = normalizedColor.match(/^RGBA?\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:\s*,\s*(\d*\.?\d+))?\)$/);
+                if (rgbMatch) {
+                    return {
+                        r: parseInt(rgbMatch[1], 10),
+                        g: parseInt(rgbMatch[2], 10),
+                        b: parseInt(rgbMatch[3], 10),
+                        // @ts-expect-error ts-migrate(2554) FIXME: Expected 1 arguments, but got 2.
+                        a: parseFloat(rgbMatch[4] || 1, 10)
+                    };
+                }
+                throw new Error("Invalid color: " + colorString);
+            }
+            var trim = function (string) { return string.replace(/^\s+/, '').replace(/\s+$/, ''); }; // return a new array-like object with int keys where each key is item
+            // ex: objRepeat({x: 8}, 3) === {0: {x: 8}, 1: {x: 8}, 2: {x: 8}}
+            function objRepeat(item, times) {
+                var obj = {};
+                for (var i = 0; i < times; i++) {
+                    obj[i] = item;
+                }
+                return obj;
+            }
+            var ua = ((_a = globalObj.navigator) === null || _a === void 0 ? void 0 : _a.userAgent) || '';
+            var isMsBrowser = ua.indexOf('MSIE ') > 0 || ua.indexOf('Trident/') > 0 || ua.indexOf('Edge/') > 0; // eslint-disable-next-line @typescript-eslint/no-empty-function
+            var noop = function () { };
+            var RenderState = /** @class */ (function () {
+                function RenderState(character, options, onStateChange) {
+                    if (onStateChange === void 0) { onStateChange = noop; }
+                    this._mutationChains = [];
+                    this._onStateChange = onStateChange;
+                    this.state = {
+                        options: {
+                            drawingFadeDuration: options.drawingFadeDuration,
+                            drawingWidth: options.drawingWidth,
+                            drawingColor: colorStringToVals(options.drawingColor),
+                            strokeColor: colorStringToVals(options.strokeColor),
+                            outlineColor: colorStringToVals(options.outlineColor),
+                            radicalColor: colorStringToVals(options.radicalColor || options.strokeColor),
+                            highlightColor: colorStringToVals(options.highlightColor)
+                        },
+                        character: {
+                            main: {
+                                opacity: options.showCharacter ? 1 : 0,
+                                strokes: {}
+                            },
+                            outline: {
+                                opacity: options.showOutline ? 1 : 0,
+                                strokes: {}
+                            },
+                            highlight: {
+                                opacity: 1,
+                                strokes: {}
+                            }
+                        },
+                        userStrokes: null
+                    };
+                    for (var i = 0; i < character.strokes.length; i++) {
+                        this.state.character.main.strokes[i] = {
+                            opacity: 1,
+                            displayPortion: 1
+                        };
+                        this.state.character.outline.strokes[i] = {
+                            opacity: 1,
+                            displayPortion: 1
+                        };
+                        this.state.character.highlight.strokes[i] = {
+                            opacity: 0,
+                            displayPortion: 1
+                        };
+                    }
+                }
+                RenderState.prototype.updateState = function (stateChanges) {
+                    var nextState = copyAndMergeDeep(this.state, stateChanges);
+                    this._onStateChange(nextState, this.state);
+                    this.state = nextState;
+                };
+                RenderState.prototype.run = function (mutations, options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    var scopes = mutations.map(function (mut) { return mut.scope; });
+                    this.cancelMutations(scopes);
+                    return new Promise(function (resolve) {
+                        var mutationChain = {
+                            _isActive: true,
+                            _index: 0,
+                            _resolve: resolve,
+                            _mutations: mutations,
+                            _loop: options.loop,
+                            _scopes: scopes
+                        };
+                        _this._mutationChains.push(mutationChain);
+                        _this._run(mutationChain);
+                    });
+                };
+                RenderState.prototype._run = function (mutationChain) {
+                    var _this = this;
+                    if (!mutationChain._isActive) {
+                        return;
+                    }
+                    var mutations = mutationChain._mutations;
+                    if (mutationChain._index >= mutations.length) {
+                        if (mutationChain._loop) {
+                            mutationChain._index = 0; // eslint-disable-line no-param-reassign
+                        }
+                        else {
+                            mutationChain._isActive = false; // eslint-disable-line no-param-reassign
+                            this._mutationChains = this._mutationChains.filter(function (chain) { return chain !== mutationChain; }); // The chain is done - resolve the promise to signal it finished successfully
+                            mutationChain._resolve({
+                                canceled: false
+                            });
+                            return;
+                        }
+                    }
+                    var activeMutation = mutationChain._mutations[mutationChain._index];
+                    activeMutation.run(this).then(function () {
+                        if (mutationChain._isActive) {
+                            mutationChain._index++; // eslint-disable-line no-param-reassign
+                            _this._run(mutationChain);
+                        }
+                    });
+                };
+                RenderState.prototype._getActiveMutations = function () {
+                    return this._mutationChains.map(function (chain) { return chain._mutations[chain._index]; });
+                };
+                RenderState.prototype.pauseAll = function () {
+                    this._getActiveMutations().forEach(function (mutation) { return mutation.pause(); });
+                };
+                RenderState.prototype.resumeAll = function () {
+                    this._getActiveMutations().forEach(function (mutation) { return mutation.resume(); });
+                };
+                RenderState.prototype.cancelMutations = function (scopesToCancel) {
+                    for (var _i = 0, _a = this._mutationChains; _i < _a.length; _i++) {
+                        var chain = _a[_i];
+                        for (var _b = 0, _c = chain._scopes; _b < _c.length; _b++) {
+                            var chainId = _c[_b];
+                            for (var _d = 0, scopesToCancel_1 = scopesToCancel; _d < scopesToCancel_1.length; _d++) {
+                                var scopeToCancel = scopesToCancel_1[_d];
+                                if (chainId.startsWith(scopeToCancel) || scopeToCancel.startsWith(chainId)) {
+                                    this._cancelMutationChain(chain);
+                                }
+                            }
+                        }
+                    }
+                };
+                RenderState.prototype.cancelAll = function () {
+                    this.cancelMutations(['']);
+                };
+                RenderState.prototype._cancelMutationChain = function (mutationChain) {
+                    var _a;
+                    mutationChain._isActive = false;
+                    for (var i = mutationChain._index; i < mutationChain._mutations.length; i++) {
+                        mutationChain._mutations[i].cancel(this);
+                    }
+                    (_a = mutationChain._resolve) === null || _a === void 0 ? void 0 : _a.call(mutationChain, {
+                        canceled: true
+                    });
+                    this._mutationChains = this._mutationChains.filter(function (chain) { return chain !== mutationChain; });
+                };
+                return RenderState;
+            }());
+            var subtract = function (p1, p2) { return ({
+                x: p1.x - p2.x,
+                y: p1.y - p2.y
+            }); };
+            var magnitude = function (point) { return Math.sqrt(Math.pow(point.x, 2) + Math.pow(point.y, 2)); };
+            var distance = function (point1, point2) { return magnitude(subtract(point1, point2)); };
+            var equals = function (point1, point2) { return point1.x === point2.x && point1.y === point2.y; };
+            var round = function (point, precision) {
+                if (precision === void 0) { precision = 1; }
+                var multiplier = precision * 10;
+                return {
+                    x: Math.round(multiplier * point.x) / multiplier,
+                    y: Math.round(multiplier * point.y) / multiplier
+                };
+            };
+            var length = function (points) {
+                var lastPoint = points[0];
+                var pointsSansFirst = points.slice(1);
+                return pointsSansFirst.reduce(function (acc, point) {
+                    var dist = distance(point, lastPoint);
+                    lastPoint = point;
+                    return acc + dist;
+                }, 0);
+            };
+            var cosineSimilarity = function (point1, point2) {
+                var rawDotProduct = point1.x * point2.x + point1.y * point2.y;
+                return rawDotProduct / magnitude(point1) / magnitude(point2);
+            };
+            /**
+             * return a new point, p3, which is on the same line as p1 and p2, but distance away
+             * from p2. p1, p2, p3 will always lie on the line in that order
+             */
+            var _extendPointOnLine = function (p1, p2, dist) {
+                var vect = subtract(p2, p1);
+                var norm = dist / magnitude(vect);
+                return {
+                    x: p2.x + norm * vect.x,
+                    y: p2.y + norm * vect.y
+                };
+            };
+            /** based on http://www.kr.tuwien.ac.at/staff/eiter/et-archive/cdtr9464.pdf */
+            var frechetDist = function (curve1, curve2) {
+                var longCurve = curve1.length >= curve2.length ? curve1 : curve2;
+                var shortCurve = curve1.length >= curve2.length ? curve2 : curve1;
+                var calcVal = function (i, j, prevResultsCol, curResultsCol) {
+                    if (i === 0 && j === 0) {
+                        return distance(longCurve[0], shortCurve[0]);
+                    }
+                    if (i > 0 && j === 0) {
+                        return Math.max(prevResultsCol[0], distance(longCurve[i], shortCurve[0]));
+                    }
+                    var lastResult = curResultsCol[curResultsCol.length - 1];
+                    if (i === 0 && j > 0) {
+                        return Math.max(lastResult, distance(longCurve[0], shortCurve[j]));
+                    }
+                    return Math.max(Math.min(prevResultsCol[j], prevResultsCol[j - 1], lastResult), distance(longCurve[i], shortCurve[j]));
+                };
+                var prevResultsCol = [];
+                for (var i = 0; i < longCurve.length; i++) {
+                    var curResultsCol = [];
+                    for (var j = 0; j < shortCurve.length; j++) {
+                        // we only need the results from i - 1 and j - 1 to continue the calculation
+                        // so we only need to hold onto the last column of calculated results
+                        // prevResultsCol is results[i-1][:] in the original algorithm
+                        // curResultsCol is results[i][:j-1] in the original algorithm
+                        curResultsCol.push(calcVal(i, j, prevResultsCol, curResultsCol));
+                    }
+                    prevResultsCol = curResultsCol;
+                }
+                return prevResultsCol[shortCurve.length - 1];
+            };
+            /** break up long segments in the curve into smaller segments of len maxLen or smaller */
+            var subdivideCurve = function (curve, maxLen) {
+                if (maxLen === void 0) { maxLen = 0.05; }
+                var newCurve = curve.slice(0, 1);
+                for (var _i = 0, _a = curve.slice(1); _i < _a.length; _i++) {
+                    var point = _a[_i];
+                    var prevPoint = newCurve[newCurve.length - 1];
+                    var segLen = distance(point, prevPoint);
+                    if (segLen > maxLen) {
+                        var numNewPoints = Math.ceil(segLen / maxLen);
+                        var newSegLen = segLen / numNewPoints;
+                        for (var i = 0; i < numNewPoints; i++) {
+                            newCurve.push(_extendPointOnLine(point, prevPoint, -1 * newSegLen * (i + 1)));
+                        }
+                    }
+                    else {
+                        newCurve.push(point);
+                    }
+                }
+                return newCurve;
+            };
+            /** redraw the curve using numPoints equally spaced out along the length of the curve */
+            var outlineCurve = function (curve, numPoints) {
+                if (numPoints === void 0) { numPoints = 30; }
+                var curveLen = length(curve);
+                var segmentLen = curveLen / (numPoints - 1);
+                var outlinePoints = [curve[0]];
+                var endPoint = arrLast(curve);
+                var remainingCurvePoints = curve.slice(1);
+                for (var i = 0; i < numPoints - 2; i++) {
+                    var lastPoint = arrLast(outlinePoints);
+                    var remainingDist = segmentLen;
+                    var outlinePointFound = false;
+                    while (!outlinePointFound) {
+                        var nextPointDist = distance(lastPoint, remainingCurvePoints[0]);
+                        if (nextPointDist < remainingDist) {
+                            remainingDist -= nextPointDist;
+                            lastPoint = remainingCurvePoints.shift();
+                        }
+                        else {
+                            var nextPoint = _extendPointOnLine(lastPoint, remainingCurvePoints[0], remainingDist - nextPointDist);
+                            outlinePoints.push(nextPoint);
+                            outlinePointFound = true;
+                        }
+                    }
+                }
+                outlinePoints.push(endPoint);
+                return outlinePoints;
+            };
+            /** translate and scale from https://en.wikipedia.org/wiki/Procrustes_analysis */
+            var normalizeCurve = function (curve) {
+                var outlinedCurve = outlineCurve(curve);
+                var meanX = average(outlinedCurve.map(function (point) { return point.x; }));
+                var meanY = average(outlinedCurve.map(function (point) { return point.y; }));
+                var mean = {
+                    x: meanX,
+                    y: meanY
+                };
+                var translatedCurve = outlinedCurve.map(function (point) { return subtract(point, mean); });
+                var scale = Math.sqrt(average([Math.pow(translatedCurve[0].x, 2) + Math.pow(translatedCurve[0].y, 2), Math.pow(arrLast(translatedCurve).x, 2) + Math.pow(arrLast(translatedCurve).y, 2)]));
+                var scaledCurve = translatedCurve.map(function (point) { return ({
+                    x: point.x / scale,
+                    y: point.y / scale
+                }); });
+                return subdivideCurve(scaledCurve);
+            }; // rotate around the origin
+            var rotate = function (curve, theta) {
+                return curve.map(function (point) { return ({
+                    x: Math.cos(theta) * point.x - Math.sin(theta) * point.y,
+                    y: Math.sin(theta) * point.x + Math.cos(theta) * point.y
+                }); });
+            }; // remove intermediate points that are on the same line as the points to either side
+            var _filterParallelPoints = function (points) {
+                if (points.length < 3)
+                    return points;
+                var filteredPoints = [points[0], points[1]];
+                points.slice(2).forEach(function (point) {
+                    var numFilteredPoints = filteredPoints.length;
+                    var curVect = subtract(point, filteredPoints[numFilteredPoints - 1]);
+                    var prevVect = subtract(filteredPoints[numFilteredPoints - 1], filteredPoints[numFilteredPoints - 2]); // this is the z coord of the cross-product. If this is 0 then they're parallel
+                    var isParallel = curVect.y * prevVect.x - curVect.x * prevVect.y === 0;
+                    if (isParallel) {
+                        filteredPoints.pop();
+                    }
+                    filteredPoints.push(point);
+                });
+                return filteredPoints;
+            };
+            function getPathString(points, close) {
+                if (close === void 0) { close = false; }
+                var start = round(points[0]);
+                var remainingPoints = points.slice(1);
+                var pathString = "M " + start.x + " " + start.y;
+                remainingPoints.forEach(function (point) {
+                    var roundedPoint = round(point);
+                    pathString += " L " + roundedPoint.x + " " + roundedPoint.y;
+                });
+                if (close) {
+                    pathString += 'Z';
+                }
+                return pathString;
+            }
+            /** take points on a path and move their start point backwards by distance */
+            var extendStart = function (points, dist) {
+                var filteredPoints = _filterParallelPoints(points);
+                if (filteredPoints.length < 2)
+                    return filteredPoints;
+                var p1 = filteredPoints[1];
+                var p2 = filteredPoints[0];
+                var newStart = _extendPointOnLine(p1, p2, dist);
+                var extendedPoints = filteredPoints.slice(1);
+                extendedPoints.unshift(newStart);
+                return extendedPoints;
+            };
+            var Stroke = /** @class */ (function () {
+                function Stroke(path, points, strokeNum, isInRadical) {
+                    if (isInRadical === void 0) { isInRadical = false; }
+                    this.path = path;
+                    this.points = points;
+                    this.strokeNum = strokeNum;
+                    this.isInRadical = isInRadical;
+                }
+                Stroke.prototype.getStartingPoint = function () {
+                    return this.points[0];
+                };
+                Stroke.prototype.getEndingPoint = function () {
+                    return this.points[this.points.length - 1];
+                };
+                Stroke.prototype.getLength = function () {
+                    return length(this.points);
+                };
+                Stroke.prototype.getVectors = function () {
+                    var lastPoint = this.points[0];
+                    var pointsSansFirst = this.points.slice(1);
+                    return pointsSansFirst.map(function (point) {
+                        var vector = subtract(point, lastPoint);
+                        lastPoint = point;
+                        return vector;
+                    });
+                };
+                Stroke.prototype.getDistance = function (point) {
+                    var distances = this.points.map(function (strokePoint) { return distance(strokePoint, point); });
+                    return Math.min.apply(Math, distances);
+                };
+                Stroke.prototype.getAverageDistance = function (points) {
+                    var _this = this;
+                    var totalDist = points.reduce(function (acc, point) { return acc + _this.getDistance(point); }, 0);
+                    return totalDist / points.length;
+                };
+                return Stroke;
+            }());
+            var Character = /** @class */ (function () {
+                function Character(symbol, strokes) {
+                    this.symbol = symbol;
+                    this.strokes = strokes;
+                }
+                return Character;
+            }());
+            function generateStrokes(_a) {
+                var radStrokes = _a.radStrokes, strokes = _a.strokes, medians = _a.medians;
+                var isInRadical = function (strokeNum) { var _a; return ((_a = radStrokes === null || radStrokes === void 0 ? void 0 : radStrokes.indexOf(strokeNum)) !== null && _a !== void 0 ? _a : -1) >= 0; };
+                return strokes.map(function (path, index) {
+                    var points = medians[index].map(function (pointData) {
+                        var x = pointData[0], y = pointData[1];
+                        return {
+                            x: x,
+                            y: y
+                        };
+                    });
+                    return new Stroke(path, points, index, isInRadical(index));
+                });
+            }
+            function parseCharData(symbol, charJson) {
+                var strokes = generateStrokes(charJson);
+                return new Character(symbol, strokes);
+            }
+            // All makemeahanzi characters have the same bounding box
+            var CHARACTER_BOUNDS = [{
+                    x: 0,
+                    y: -124
+                }, {
+                    x: 1024,
+                    y: 900
+                }];
+            var from = CHARACTER_BOUNDS[0], to = CHARACTER_BOUNDS[1];
+            var preScaledWidth = to.x - from.x;
+            var preScaledHeight = to.y - from.y;
+            var Positioner = /** @class */ (function () {
+                function Positioner(options) {
+                    var padding = options.padding, width = options.width, height = options.height;
+                    this.padding = padding;
+                    this.width = width;
+                    this.height = height;
+                    var effectiveWidth = width - 2 * padding;
+                    var effectiveHeight = height - 2 * padding;
+                    var scaleX = effectiveWidth / preScaledWidth;
+                    var scaleY = effectiveHeight / preScaledHeight;
+                    this.scale = Math.min(scaleX, scaleY);
+                    var xCenteringBuffer = padding + (effectiveWidth - this.scale * preScaledWidth) / 2;
+                    var yCenteringBuffer = padding + (effectiveHeight - this.scale * preScaledHeight) / 2;
+                    this.xOffset = -1 * from.x * this.scale + xCenteringBuffer;
+                    this.yOffset = -1 * from.y * this.scale + yCenteringBuffer;
+                }
+                Positioner.prototype.convertExternalPoint = function (point) {
+                    var x = (point.x - this.xOffset) / this.scale;
+                    var y = (this.height - this.yOffset - point.y) / this.scale;
+                    return {
+                        x: x,
+                        y: y
+                    };
+                };
+                return Positioner;
+            }());
+            var AVG_DIST_THRESHOLD = 350; // bigger = more lenient
+            var COSINE_SIMILARITY_THRESHOLD = 0; // -1 to 1, smaller = more lenient
+            var START_AND_END_DIST_THRESHOLD = 250; // bigger = more lenient
+            var FRECHET_THRESHOLD = 0.4; // bigger = more lenient
+            var MIN_LEN_THRESHOLD = 0.35; // smaller = more lenient
+            function strokeMatches(userStroke, character, strokeNum, options) {
+                if (options === void 0) { options = {}; }
+                var strokes = character.strokes;
+                var points = stripDuplicates(userStroke.points);
+                if (points.length < 2) {
+                    return null;
+                }
+                var _a = getMatchData(points, strokes[strokeNum], options), isMatch = _a.isMatch, avgDist = _a.avgDist;
+                if (!isMatch) {
+                    return false;
+                } // if there is a better match among strokes the user hasn't drawn yet, the user probably drew the wrong stroke
+                var laterStrokes = strokes.slice(strokeNum + 1);
+                var closestMatchDist = avgDist;
+                for (var i = 0; i < laterStrokes.length; i++) {
+                    var _b = getMatchData(points, laterStrokes[i], options), isMatch_1 = _b.isMatch, avgDist_1 = _b.avgDist;
+                    if (isMatch_1 && avgDist_1 < closestMatchDist) {
+                        closestMatchDist = avgDist_1;
+                    }
+                } // if there's a better match, rather that returning false automatically, try reducing leniency instead
+                // if leniency is already really high we can allow some similar strokes to pass
+                if (closestMatchDist < avgDist) {
+                    // adjust leniency between 0.3 and 0.6 depending on how much of a better match the new match is
+                    var leniencyAdjustment = 0.6 * (closestMatchDist + avgDist) / (2 * avgDist);
+                    var isMatch_2 = getMatchData(points, strokes[strokeNum], __assign(__assign({}, options), { leniency: (options.leniency || 1) * leniencyAdjustment })).isMatch;
+                    return isMatch_2;
+                }
+                return true;
+            }
+            var startAndEndMatches = function (points, closestStroke, leniency) {
+                var startingDist = distance(closestStroke.getStartingPoint(), points[0]);
+                var endingDist = distance(closestStroke.getEndingPoint(), points[points.length - 1]);
+                return startingDist <= START_AND_END_DIST_THRESHOLD * leniency && endingDist <= START_AND_END_DIST_THRESHOLD * leniency;
+            }; // returns a list of the direction of all segments in the line connecting the points
+            var getEdgeVectors = function (points) {
+                var vectors = [];
+                var lastPoint = points[0];
+                points.slice(1).forEach(function (point) {
+                    vectors.push(subtract(point, lastPoint));
+                    lastPoint = point;
+                });
+                return vectors;
+            };
+            var directionMatches = function (points, stroke) {
+                var edgeVectors = getEdgeVectors(points);
+                var strokeVectors = stroke.getVectors();
+                var similarities = edgeVectors.map(function (edgeVector) {
+                    var strokeSimilarities = strokeVectors.map(function (strokeVector) { return cosineSimilarity(strokeVector, edgeVector); });
+                    return Math.max.apply(Math, strokeSimilarities);
+                });
+                var avgSimilarity = average(similarities);
+                return avgSimilarity > COSINE_SIMILARITY_THRESHOLD;
+            };
+            var lengthMatches = function (points, stroke, leniency) {
+                return leniency * (length(points) + 25) / (stroke.getLength() + 25) >= MIN_LEN_THRESHOLD;
+            };
+            var stripDuplicates = function (points) {
+                if (points.length < 2)
+                    return points;
+                var firstPoint = points[0], rest = points.slice(1);
+                var dedupedPoints = [firstPoint];
+                for (var _i = 0, rest_1 = rest; _i < rest_1.length; _i++) {
+                    var point = rest_1[_i];
+                    if (!equals(point, dedupedPoints[dedupedPoints.length - 1])) {
+                        dedupedPoints.push(point);
+                    }
+                }
+                return dedupedPoints;
+            };
+            var SHAPE_FIT_ROTATIONS = [Math.PI / 16, Math.PI / 32, 0, -1 * Math.PI / 32, -1 * Math.PI / 16];
+            var shapeFit = function (curve1, curve2, leniency) {
+                var normCurve1 = normalizeCurve(curve1);
+                var normCurve2 = normalizeCurve(curve2);
+                var minDist = Infinity;
+                SHAPE_FIT_ROTATIONS.forEach(function (theta) {
+                    var dist = frechetDist(normCurve1, rotate(normCurve2, theta));
+                    if (dist < minDist) {
+                        minDist = dist;
+                    }
+                });
+                return minDist <= FRECHET_THRESHOLD * leniency;
+            };
+            var getMatchData = function (points, stroke, options) {
+                var _a = options.leniency, leniency = _a === void 0 ? 1 : _a, _b = options.isOutlineVisible, isOutlineVisible = _b === void 0 ? false : _b;
+                var avgDist = stroke.getAverageDistance(points);
+                var distMod = isOutlineVisible || stroke.strokeNum > 0 ? 0.5 : 1;
+                var withinDistThresh = avgDist <= AVG_DIST_THRESHOLD * distMod * leniency; // short circuit for faster matching
+                if (!withinDistThresh) {
+                    return {
+                        isMatch: false,
+                        avgDist: avgDist
+                    };
+                }
+                var startAndEndMatch = startAndEndMatches(points, stroke, leniency);
+                var directionMatch = directionMatches(points, stroke);
+                var shapeMatch = shapeFit(points, stroke.points, leniency);
+                var lengthMatch = lengthMatches(points, stroke, leniency);
+                return {
+                    isMatch: withinDistThresh && startAndEndMatch && directionMatch && shapeMatch && lengthMatch,
+                    avgDist: avgDist
+                };
+            };
+            var UserStroke = /** @class */ (function () {
+                function UserStroke(id, startingPoint, startingExternalPoint) {
+                    this.id = id;
+                    this.points = [startingPoint];
+                    this.externalPoints = [startingExternalPoint];
+                }
+                UserStroke.prototype.appendPoint = function (point, externalPoint) {
+                    this.points.push(point);
+                    this.externalPoints.push(externalPoint);
+                };
+                return UserStroke;
+            }());
+            var Delay = /** @class */ (function () {
+                function Delay(duration) {
+                    this._duration = duration;
+                    this._startTime = null;
+                    this._paused = false;
+                    this.scope = "delay." + duration;
+                }
+                Delay.prototype.run = function () {
+                    var _this = this;
+                    this._startTime = performanceNow();
+                    this._runningPromise = new Promise(function (resolve) {
+                        _this._resolve = resolve; // @ts-ignore return type of "setTimeout" in builds is parsed as `number` instead of `Timeout`
+                        _this._timeout = setTimeout(function () { return _this.cancel(); }, _this._duration);
+                    });
+                    return this._runningPromise;
+                };
+                Delay.prototype.pause = function () {
+                    if (this._paused)
+                        return; // to pause, clear the timeout and rewrite this._duration with whatever time is remaining
+                    var elapsedDelay = performance.now() - (this._startTime || 0);
+                    this._duration = Math.max(0, this._duration - elapsedDelay);
+                    clearTimeout(this._timeout);
+                    this._paused = true;
+                };
+                Delay.prototype.resume = function () {
+                    var _this = this;
+                    if (!this._paused)
+                        return;
+                    this._startTime = performance.now(); // @ts-ignore return type of "setTimeout" in builds is parsed as `number` instead of `Timeout`
+                    this._timeout = setTimeout(function () { return _this.cancel(); }, this._duration);
+                    this._paused = false;
+                };
+                Delay.prototype.cancel = function () {
+                    clearTimeout(this._timeout);
+                    if (this._resolve) {
+                        this._resolve();
+                    }
+                    this._resolve = undefined;
+                };
+                return Delay;
+            }());
+            var Mutation = /** @class */ (function () {
+                /**
+                 *
+                 * @param scope a string representation of what fields this mutation affects from the state. This is used to cancel conflicting mutations
+                 * @param valuesOrCallable a thunk containing the value to set, or a callback which will return those values
+                 */
+                function Mutation(scope, valuesOrCallable, options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    this._tick = function (timing) {
+                        if (_this._startPauseTime !== null) {
+                            return;
+                        }
+                        var progress = Math.min(1, (timing - _this._startTime - _this._pausedDuration) / _this._duration);
+                        if (progress === 1) {
+                            _this._renderState.updateState(_this._values);
+                            _this._frameHandle = undefined;
+                            _this.cancel(_this._renderState);
+                        }
+                        else {
+                            var easedProgress = ease(progress);
+                            var stateChanges = getPartialValues(_this._startState, _this._values, easedProgress);
+                            _this._renderState.updateState(stateChanges);
+                            _this._frameHandle = requestAnimationFrame(_this._tick);
+                        }
+                    };
+                    this.scope = scope;
+                    this._valuesOrCallable = valuesOrCallable;
+                    this._duration = options.duration || 0;
+                    this._force = options.force;
+                    this._pausedDuration = 0;
+                    this._startPauseTime = null;
+                }
+                Mutation.prototype.run = function (renderState) {
+                    var _this = this;
+                    if (!this._values)
+                        this._inflateValues(renderState);
+                    if (this._duration === 0)
+                        renderState.updateState(this._values);
+                    if (this._duration === 0 || isAlreadyAtEnd(renderState.state, this._values)) {
+                        return Promise.resolve();
+                    }
+                    this._renderState = renderState;
+                    this._startState = renderState.state;
+                    this._startTime = performance.now();
+                    this._frameHandle = requestAnimationFrame(this._tick);
+                    return new Promise(function (resolve) {
+                        _this._resolve = resolve;
+                    });
+                };
+                Mutation.prototype._inflateValues = function (renderState) {
+                    var values = this._valuesOrCallable;
+                    if (typeof this._valuesOrCallable === 'function') {
+                        values = this._valuesOrCallable(renderState.state);
+                    }
+                    this._values = inflate(this.scope, values);
+                };
+                Mutation.prototype.pause = function () {
+                    if (this._startPauseTime !== null) {
+                        return;
+                    }
+                    if (this._frameHandle) {
+                        cancelAnimationFrame(this._frameHandle);
+                    }
+                    this._startPauseTime = performance.now();
+                };
+                Mutation.prototype.resume = function () {
+                    if (this._startPauseTime === null) {
+                        return;
+                    }
+                    this._frameHandle = requestAnimationFrame(this._tick);
+                    this._pausedDuration += performance.now() - this._startPauseTime;
+                    this._startPauseTime = null;
+                };
+                Mutation.prototype.cancel = function (renderState) {
+                    var _a;
+                    (_a = this._resolve) === null || _a === void 0 ? void 0 : _a.call(this);
+                    this._resolve = undefined;
+                    cancelAnimationFrame(this._frameHandle || -1);
+                    this._frameHandle = undefined;
+                    if (this._force) {
+                        if (!this._values)
+                            this._inflateValues(renderState);
+                        renderState.updateState(this._values);
+                    }
+                };
+                return Mutation;
+            }());
+            Mutation.Delay = Delay;
+            function getPartialValues(startValues, endValues, progress) {
+                var target = {};
+                for (var key in endValues) {
+                    var endValue = endValues[key];
+                    var startValue = startValues === null || startValues === void 0 ? void 0 : startValues[key];
+                    if (typeof startValue === 'number' && typeof endValue === 'number' && endValue >= 0) {
+                        target[key] = progress * (endValue - startValue) + startValue;
+                    }
+                    else {
+                        target[key] = getPartialValues(startValue, endValue, progress);
+                    }
+                }
+                return target;
+            }
+            function isAlreadyAtEnd(startValues, endValues) {
+                for (var key in endValues) {
+                    var endValue = endValues[key];
+                    var startValue = startValues === null || startValues === void 0 ? void 0 : startValues[key];
+                    if (endValue >= 0) {
+                        if (endValue !== startValue) {
+                            return false;
+                        }
+                    }
+                    else if (!isAlreadyAtEnd(startValue, endValue)) {
+                        return false;
+                    }
+                }
+                return true;
+            } // from https://github.com/maxwellito/vivus
+            var ease = function (x) { return -Math.cos(x * Math.PI) / 2 + 0.5; };
+            var showStrokes = function (charName, character, duration) {
+                return [new Mutation("character." + charName + ".strokes", objRepeat({
+                        opacity: 1,
+                        displayPortion: 1
+                    }, character.strokes.length), {
+                        duration: duration,
+                        force: true
+                    })];
+            };
+            var showCharacter = function (charName, character, duration) {
+                return [new Mutation("character." + charName, {
+                        opacity: 1,
+                        strokes: objRepeat({
+                            opacity: 1,
+                            displayPortion: 1
+                        }, character.strokes.length)
+                    }, {
+                        duration: duration,
+                        force: true
+                    })];
+            };
+            var hideCharacter = function (charName, character, duration) {
+                return __spreadArrays([new Mutation("character." + charName + ".opacity", 0, {
+                        duration: duration,
+                        force: true
+                    })], showStrokes(charName, character, 0));
+            };
+            var updateColor = function (colorName, colorVal, duration) {
+                return [new Mutation("options." + colorName, colorVal, {
+                        duration: duration
+                    })];
+            };
+            var highlightStroke = function (stroke, color, speed) {
+                var _a;
+                var strokeNum = stroke.strokeNum;
+                var duration = (stroke.getLength() + 600) / (3 * speed);
+                return [new Mutation('character.highlight.strokeColor', color), new Mutation('character.highlight', {
+                        opacity: 1,
+                        strokes: (_a = {},
+                            _a[strokeNum] = {
+                                displayPortion: 0,
+                                opacity: 0
+                            },
+                            _a)
+                    }), new Mutation("character.highlight.strokes." + strokeNum, {
+                        displayPortion: 1,
+                        opacity: 1
+                    }, {
+                        duration: duration
+                    }), new Mutation("character.highlight.strokes." + strokeNum + ".opacity", 0, {
+                        duration: duration
+                    })];
+            };
+            var animateStroke = function (charName, stroke, speed) {
+                var _a;
+                var strokeNum = stroke.strokeNum;
+                var duration = (stroke.getLength() + 600) / (3 * speed);
+                return [new Mutation("character." + charName, {
+                        opacity: 1,
+                        strokes: (_a = {},
+                            _a[strokeNum] = {
+                                displayPortion: 0,
+                                opacity: 1
+                            },
+                            _a)
+                    }), new Mutation("character." + charName + ".strokes." + strokeNum + ".displayPortion", 1, {
+                        duration: duration
+                    })];
+            };
+            var animateSingleStroke = function (charName, character, strokeNum, speed) {
+                var mutationStateFunc = function (state) {
+                    var curCharState = state.character[charName];
+                    var mutationState = {
+                        opacity: 1,
+                        strokes: {}
+                    };
+                    for (var i = 0; i < character.strokes.length; i++) {
+                        mutationState.strokes[i] = {
+                            opacity: curCharState.opacity * curCharState.strokes[i].opacity
+                        };
+                    }
+                    return mutationState;
+                };
+                var stroke = character.strokes[strokeNum];
+                return __spreadArrays([new Mutation("character." + charName, mutationStateFunc)], animateStroke(charName, stroke, speed));
+            };
+            var showStroke = function (charName, strokeNum, duration) {
+                return [new Mutation("character." + charName + ".strokes." + strokeNum, {
+                        displayPortion: 1,
+                        opacity: 1
+                    }, {
+                        duration: duration,
+                        force: true
+                    })];
+            };
+            var animateCharacter = function (charName, character, fadeDuration, speed, delayBetweenStrokes) {
+                var mutations = hideCharacter(charName, character, fadeDuration);
+                mutations = mutations.concat(showStrokes(charName, character, 0));
+                mutations.push(new Mutation("character." + charName, {
+                    opacity: 1,
+                    strokes: objRepeat({
+                        opacity: 0
+                    }, character.strokes.length)
+                }, {
+                    force: true
+                }));
+                character.strokes.forEach(function (stroke, i) {
+                    if (i > 0)
+                        mutations.push(new Mutation.Delay(delayBetweenStrokes));
+                    mutations = mutations.concat(animateStroke(charName, stroke, speed));
+                });
+                return mutations;
+            };
+            var animateCharacterLoop = function (charName, character, fadeDuration, speed, delayBetweenStrokes, delayBetweenLoops) {
+                var mutations = animateCharacter(charName, character, fadeDuration, speed, delayBetweenStrokes);
+                mutations.push(new Mutation.Delay(delayBetweenLoops));
+                return mutations;
+            };
+            var startQuiz = function (character, fadeDuration) {
+                return __spreadArrays(hideCharacter('main', character, fadeDuration), [new Mutation('character.highlight', {
+                        opacity: 1,
+                        strokes: objRepeat({
+                            opacity: 0
+                        }, character.strokes.length)
+                    }, {
+                        force: true
+                    }), new Mutation('character.main', {
+                        opacity: 1,
+                        strokes: objRepeat({
+                            opacity: 0
+                        }, character.strokes.length)
+                    }, {
+                        force: true
+                    })]);
+            };
+            var startUserStroke = function (id, point) {
+                return [new Mutation('quiz.activeUserStrokeId', id, {
+                        force: true
+                    }), new Mutation("userStrokes." + id, {
+                        points: [point],
+                        opacity: 1
+                    }, {
+                        force: true
+                    })];
+            };
+            var updateUserStroke = function (userStrokeId, points) {
+                return [new Mutation("userStrokes." + userStrokeId + ".points", points, {
+                        force: true
+                    })];
+            };
+            var removeUserStroke = function (userStrokeId, duration) {
+                return [new Mutation("userStrokes." + userStrokeId + ".opacity", 0, {
+                        duration: duration
+                    }), new Mutation("userStrokes." + userStrokeId, null, {
+                        force: true
+                    })];
+            };
+            var highlightCompleteChar = function (character, duration) {
+                return __spreadArrays(hideCharacter('highlight', character), showCharacter('highlight', character, duration / 2), hideCharacter('highlight', character, duration / 2));
+            };
+            var getDrawnPath = function (userStroke) { return ({
+                pathString: getPathString(userStroke.externalPoints),
+                points: userStroke.points.map(function (point) { return round(point); })
+            }); };
+            var Quiz = /** @class */ (function () {
+                function Quiz(character, renderState, positioner) {
+                    this._currentStrokeIndex = 0;
+                    this._mistakesOnStroke = 0;
+                    this._totalMistakes = 0;
+                    this._character = character;
+                    this._renderState = renderState;
+                    this._isActive = false;
+                    this._positioner = positioner;
+                }
+                Quiz.prototype.startQuiz = function (options) {
+                    this._isActive = true;
+                    this._options = options;
+                    this._currentStrokeIndex = 0;
+                    this._mistakesOnStroke = 0;
+                    this._totalMistakes = 0;
+                    return this._renderState.run(startQuiz(this._character, options.strokeFadeDuration));
+                };
+                Quiz.prototype.startUserStroke = function (externalPoint) {
+                    if (!this._isActive) {
+                        return null;
+                    }
+                    if (this._userStroke) {
+                        return this.endUserStroke();
+                    }
+                    var point = this._positioner.convertExternalPoint(externalPoint);
+                    var strokeId = counter();
+                    this._userStroke = new UserStroke(strokeId, point, externalPoint);
+                    return this._renderState.run(startUserStroke(strokeId, point));
+                };
+                Quiz.prototype.continueUserStroke = function (externalPoint) {
+                    if (!this._userStroke) {
+                        return Promise.resolve();
+                    }
+                    var point = this._positioner.convertExternalPoint(externalPoint);
+                    this._userStroke.appendPoint(point, externalPoint);
+                    var nextPoints = this._userStroke.points.slice(0);
+                    return this._renderState.run(updateUserStroke(this._userStroke.id, nextPoints));
+                };
+                Quiz.prototype.endUserStroke = function () {
+                    var _a;
+                    if (!this._userStroke)
+                        return;
+                    this._renderState.run(removeUserStroke(this._userStroke.id, (_a = this._options.drawingFadeDuration) !== null && _a !== void 0 ? _a : 300)); // skip single-point strokes
+                    if (this._userStroke.points.length === 1) {
+                        this._userStroke = undefined;
+                        return;
+                    }
+                    var currentStroke = this._getCurrentStroke();
+                    var isMatch = strokeMatches(this._userStroke, this._character, this._currentStrokeIndex, {
+                        isOutlineVisible: this._renderState.state.character.outline.opacity > 0,
+                        leniency: this._options.leniency
+                    });
+                    if (isMatch) {
+                        this._handleSuccess();
+                    }
+                    else {
+                        this._handleFailure();
+                        var _b = this._options, showHintAfterMisses = _b.showHintAfterMisses, highlightColor = _b.highlightColor, strokeHighlightSpeed = _b.strokeHighlightSpeed;
+                        if (showHintAfterMisses !== false && this._mistakesOnStroke >= showHintAfterMisses) {
+                            this._renderState.run(highlightStroke(currentStroke, colorStringToVals(highlightColor), strokeHighlightSpeed));
+                        }
+                    }
+                    this._userStroke = undefined;
+                };
+                Quiz.prototype.cancel = function () {
+                    this._isActive = false;
+                    if (this._userStroke) {
+                        this._renderState.run(removeUserStroke(this._userStroke.id, this._options.drawingFadeDuration));
+                    }
+                };
+                Quiz.prototype._getStrokeData = function (isCorrect) {
+                    if (isCorrect === void 0) { isCorrect = false; }
+                    return {
+                        character: this._character.symbol,
+                        strokeNum: this._currentStrokeIndex,
+                        mistakesOnStroke: this._mistakesOnStroke,
+                        totalMistakes: this._totalMistakes,
+                        strokesRemaining: this._character.strokes.length - this._currentStrokeIndex - (isCorrect ? 1 : 0),
+                        drawnPath: getDrawnPath(this._userStroke)
+                    };
+                };
+                Quiz.prototype._handleSuccess = function () {
+                    if (!this._options)
+                        return;
+                    var _a = this._character, strokes = _a.strokes, symbol = _a.symbol;
+                    var _b = this._options, onCorrectStroke = _b.onCorrectStroke, onComplete = _b.onComplete, highlightOnComplete = _b.highlightOnComplete, strokeFadeDuration = _b.strokeFadeDuration, strokeHighlightDuration = _b.strokeHighlightDuration;
+                    onCorrectStroke === null || onCorrectStroke === void 0 ? void 0 : onCorrectStroke(this._getStrokeData(true));
+                    var animation = showStroke('main', this._currentStrokeIndex, strokeFadeDuration);
+                    this._mistakesOnStroke = 0;
+                    this._currentStrokeIndex += 1;
+                    var isComplete = this._currentStrokeIndex === strokes.length;
+                    if (isComplete) {
+                        this._isActive = false;
+                        onComplete === null || onComplete === void 0 ? void 0 : onComplete({
+                            character: symbol,
+                            totalMistakes: this._totalMistakes
+                        });
+                        if (highlightOnComplete) {
+                            animation = animation.concat(highlightCompleteChar(this._character, (strokeHighlightDuration || 0) * 2));
+                        }
+                    }
+                    this._renderState.run(animation);
+                };
+                Quiz.prototype._handleFailure = function () {
+                    var _a, _b;
+                    this._mistakesOnStroke += 1;
+                    this._totalMistakes += 1;
+                    (_b = (_a = this._options).onMistake) === null || _b === void 0 ? void 0 : _b.call(_a, this._getStrokeData());
+                };
+                Quiz.prototype._getCurrentStroke = function () {
+                    return this._character.strokes[this._currentStrokeIndex];
+                };
+                return Quiz;
+            }());
+            function createElm(elmType) {
+                return document.createElementNS('http://www.w3.org/2000/svg', elmType);
+            }
+            function attr(elm, name, value) {
+                elm.setAttributeNS(null, name, value);
+            }
+            function attrs(elm, attrsMap) {
+                Object.keys(attrsMap).forEach(function (attrName) { return attr(elm, attrName, attrsMap[attrName]); });
+            } // inspired by https://talk.observablehq.com/t/hanzi-writer-renders-incorrectly-inside-an-observable-notebook-on-a-mobile-browser/1898
+            function urlIdRef(id) {
+                var prefix = '';
+                if (window.location && window.location.href) {
+                    prefix = window.location.href.replace(/#[^#]*$/, '').replace(/"/gi, '%22');
+                }
+                return "url(\"" + prefix + "#" + id + "\")";
+            }
+            function removeElm(elm) {
+                var _a;
+                (_a = elm === null || elm === void 0 ? void 0 : elm.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(elm);
+            }
+            var StrokeRendererBase = /** @class */ (function () {
+                function StrokeRendererBase(stroke) {
+                    this.stroke = stroke;
+                    this._pathLength = stroke.getLength() + StrokeRendererBase.STROKE_WIDTH / 2;
+                }
+                StrokeRendererBase.prototype._getStrokeDashoffset = function (displayPortion) {
+                    return this._pathLength * 0.999 * (1 - displayPortion);
+                };
+                StrokeRendererBase.prototype._getColor = function (_a) {
+                    var strokeColor = _a.strokeColor, radicalColor = _a.radicalColor;
+                    return radicalColor && this.stroke.isInRadical ? radicalColor : strokeColor;
+                };
+                return StrokeRendererBase;
+            }());
+            StrokeRendererBase.STROKE_WIDTH = 200;
+            var STROKE_WIDTH = 200;
+            /** This is a stroke composed of several stroke parts **/
+            var StrokeRenderer = /** @class */ (function (_super) {
+                __extends(StrokeRenderer, _super);
+                function StrokeRenderer(stroke) {
+                    var _this = _super.call(this, stroke) || this;
+                    _this._oldProps = undefined;
+                    return _this;
+                }
+                StrokeRenderer.prototype.mount = function (target) {
+                    this._animationPath = createElm('path');
+                    this._clip = createElm('clipPath');
+                    this._strokePath = createElm('path');
+                    var maskId = "mask-" + counter();
+                    attr(this._clip, 'id', maskId);
+                    attr(this._strokePath, 'd', this.stroke.path);
+                    this._animationPath.style.opacity = '0';
+                    attr(this._animationPath, 'clip-path', urlIdRef(maskId));
+                    var extendedMaskPoints = extendStart(this.stroke.points, STROKE_WIDTH / 2);
+                    attr(this._animationPath, 'd', getPathString(extendedMaskPoints));
+                    attrs(this._animationPath, {
+                        stroke: '#FFFFFF',
+                        'stroke-width': STROKE_WIDTH.toString(),
+                        fill: 'none',
+                        'stroke-linecap': 'round',
+                        'stroke-linejoin': 'miter',
+                        'stroke-dasharray': this._pathLength + "," + this._pathLength
+                    });
+                    this._clip.appendChild(this._strokePath);
+                    target.defs.appendChild(this._clip);
+                    target.svg.appendChild(this._animationPath);
+                    return this;
+                };
+                StrokeRenderer.prototype.render = function (props) {
+                    var _a, _b;
+                    if (props === this._oldProps || !this._animationPath) {
+                        return;
+                    }
+                    if (props.displayPortion !== ((_a = this._oldProps) === null || _a === void 0 ? void 0 : _a.displayPortion)) {
+                        this._animationPath.style.strokeDashoffset = this._getStrokeDashoffset(props.displayPortion).toString();
+                    }
+                    var color = this._getColor(props);
+                    if (!this._oldProps || color !== this._getColor(this._oldProps)) {
+                        var r = color.r, g = color.g, b = color.b, a = color.a;
+                        attrs(this._animationPath, {
+                            stroke: "rgba(" + r + "," + g + "," + b + "," + a + ")"
+                        });
+                    }
+                    if (props.opacity !== ((_b = this._oldProps) === null || _b === void 0 ? void 0 : _b.opacity)) {
+                        this._animationPath.style.opacity = props.opacity.toString();
+                    }
+                    this._oldProps = props;
+                };
+                return StrokeRenderer;
+            }(StrokeRendererBase));
+            var CharacterRenderer = /** @class */ (function () {
+                function CharacterRenderer(character) {
+                    this._oldProps = undefined;
+                    this._strokeRenderers = character.strokes.map(function (stroke) { return new StrokeRenderer(stroke); });
+                }
+                CharacterRenderer.prototype.mount = function (target) {
+                    var subTarget = target.createSubRenderTarget();
+                    this._group = subTarget.svg;
+                    this._strokeRenderers.forEach(function (strokeRenderer) {
+                        strokeRenderer.mount(subTarget);
+                    });
+                };
+                CharacterRenderer.prototype.render = function (props) {
+                    var _a, _b, _c, _d;
+                    if (props === this._oldProps || !this._group) {
+                        return;
+                    }
+                    var opacity = props.opacity, strokes = props.strokes, strokeColor = props.strokeColor, _e = props.radicalColor, radicalColor = _e === void 0 ? null : _e;
+                    if (opacity !== ((_a = this._oldProps) === null || _a === void 0 ? void 0 : _a.opacity)) {
+                        this._group.style.opacity = opacity.toString(); // MS browsers seem to have a bug where if SVG is set to display:none, it sometimes breaks.
+                        // More info: https://github.com/chanind/hanzi-writer/issues/164
+                        // this is just a perf improvement, so disable for MS browsers
+                        if (!isMsBrowser) {
+                            if (opacity === 0) {
+                                this._group.style.display = 'none';
+                            }
+                            else if (((_b = this._oldProps) === null || _b === void 0 ? void 0 : _b.opacity) === 0) {
+                                this._group.style.removeProperty('display');
+                            }
+                        }
+                    }
+                    var colorsChanged = !this._oldProps || strokeColor !== this._oldProps.strokeColor || radicalColor !== this._oldProps.radicalColor;
+                    if (colorsChanged || strokes !== ((_c = this._oldProps) === null || _c === void 0 ? void 0 : _c.strokes)) {
+                        for (var i = 0; i < this._strokeRenderers.length; i++) {
+                            if (!colorsChanged && ((_d = this._oldProps) === null || _d === void 0 ? void 0 : _d.strokes) && strokes[i] === this._oldProps.strokes[i]) {
+                                continue;
+                            }
+                            this._strokeRenderers[i].render({
+                                strokeColor: strokeColor,
+                                radicalColor: radicalColor,
+                                opacity: strokes[i].opacity,
+                                displayPortion: strokes[i].displayPortion
+                            });
+                        }
+                    }
+                    this._oldProps = props;
+                };
+                return CharacterRenderer;
+            }());
+            var UserStrokeRenderer = /** @class */ (function () {
+                function UserStrokeRenderer() {
+                    this._oldProps = undefined;
+                }
+                UserStrokeRenderer.prototype.mount = function (target) {
+                    this._path = createElm('path');
+                    target.svg.appendChild(this._path);
+                };
+                UserStrokeRenderer.prototype.render = function (props) {
+                    var _a, _b, _c, _d;
+                    if (!this._path || props === this._oldProps) {
+                        return;
+                    }
+                    if (props.strokeColor !== ((_a = this._oldProps) === null || _a === void 0 ? void 0 : _a.strokeColor) || props.strokeWidth !== ((_b = this._oldProps) === null || _b === void 0 ? void 0 : _b.strokeWidth)) {
+                        var _e = props.strokeColor, r = _e.r, g = _e.g, b = _e.b, a = _e.a;
+                        attrs(this._path, {
+                            fill: 'none',
+                            stroke: "rgba(" + r + "," + g + "," + b + "," + a + ")",
+                            'stroke-width': props.strokeWidth.toString(),
+                            'stroke-linecap': 'round',
+                            'stroke-linejoin': 'round'
+                        });
+                    }
+                    if (props.opacity !== ((_c = this._oldProps) === null || _c === void 0 ? void 0 : _c.opacity)) {
+                        attr(this._path, 'opacity', props.opacity.toString());
+                    }
+                    if (props.points !== ((_d = this._oldProps) === null || _d === void 0 ? void 0 : _d.points)) {
+                        attr(this._path, 'd', getPathString(props.points));
+                    }
+                    this._oldProps = props;
+                };
+                UserStrokeRenderer.prototype.destroy = function () {
+                    removeElm(this._path);
+                };
+                return UserStrokeRenderer;
+            }());
+            var HanziWriterRenderer = /** @class */ (function () {
+                function HanziWriterRenderer(character, positioner) {
+                    this._character = character;
+                    this._positioner = positioner;
+                    this._mainCharRenderer = new CharacterRenderer(character);
+                    this._outlineCharRenderer = new CharacterRenderer(character);
+                    this._highlightCharRenderer = new CharacterRenderer(character);
+                    this._userStrokeRenderers = {};
+                }
+                HanziWriterRenderer.prototype.mount = function (target) {
+                    var positionedTarget = target.createSubRenderTarget();
+                    var group = positionedTarget.svg;
+                    var _a = this._positioner, xOffset = _a.xOffset, yOffset = _a.yOffset, height = _a.height, scale = _a.scale;
+                    attr(group, 'transform', "translate(" + xOffset + ", " + (height - yOffset) + ") scale(" + scale + ", " + -1 * scale + ")");
+                    this._outlineCharRenderer.mount(positionedTarget);
+                    this._mainCharRenderer.mount(positionedTarget);
+                    this._highlightCharRenderer.mount(positionedTarget);
+                    this._positionedTarget = positionedTarget;
+                };
+                HanziWriterRenderer.prototype.render = function (props) {
+                    var _this = this;
+                    var _a;
+                    var _b = props.character, main = _b.main, outline = _b.outline, highlight = _b.highlight;
+                    var _c = props.options, outlineColor = _c.outlineColor, radicalColor = _c.radicalColor, highlightColor = _c.highlightColor, strokeColor = _c.strokeColor, drawingWidth = _c.drawingWidth, drawingColor = _c.drawingColor;
+                    this._outlineCharRenderer.render({
+                        opacity: outline.opacity,
+                        strokes: outline.strokes,
+                        strokeColor: outlineColor
+                    });
+                    this._mainCharRenderer.render({
+                        opacity: main.opacity,
+                        strokes: main.strokes,
+                        strokeColor: strokeColor,
+                        radicalColor: radicalColor
+                    });
+                    this._highlightCharRenderer.render({
+                        opacity: highlight.opacity,
+                        strokes: highlight.strokes,
+                        strokeColor: highlightColor
+                    });
+                    var userStrokes = props.userStrokes || {};
+                    for (var userStrokeId in this._userStrokeRenderers) {
+                        if (!userStrokes[userStrokeId]) {
+                            (_a = this._userStrokeRenderers[userStrokeId]) === null || _a === void 0 ? void 0 : _a.destroy();
+                            delete this._userStrokeRenderers[userStrokeId];
+                        }
+                    }
+                    var _loop_1 = function (userStrokeId) {
+                        var stroke = userStrokes[userStrokeId];
+                        if (!stroke) {
+                            return "continue";
+                        }
+                        var userStrokeProps = __assign({ strokeWidth: drawingWidth, strokeColor: drawingColor }, stroke);
+                        var strokeRenderer = (function () {
+                            if (_this._userStrokeRenderers[userStrokeId]) {
+                                return _this._userStrokeRenderers[userStrokeId];
+                            }
+                            var newStrokeRenderer = new UserStrokeRenderer();
+                            newStrokeRenderer.mount(_this._positionedTarget);
+                            _this._userStrokeRenderers[userStrokeId] = newStrokeRenderer;
+                            return newStrokeRenderer;
+                        })();
+                        strokeRenderer.render(userStrokeProps);
+                    };
+                    for (var userStrokeId in userStrokes) {
+                        _loop_1(userStrokeId);
+                    }
+                };
+                HanziWriterRenderer.prototype.destroy = function () {
+                    removeElm(this._positionedTarget.svg);
+                    this._positionedTarget.defs.innerHTML = '';
+                };
+                return HanziWriterRenderer;
+            }());
+            /** Generic render target */
+            var RenderTargetBase = /** @class */ (function () {
+                function RenderTargetBase(node) {
+                    this.node = node;
+                }
+                RenderTargetBase.prototype.addPointerStartListener = function (callback) {
+                    var _this = this;
+                    this.node.addEventListener('mousedown', function (evt) {
+                        callback(_this._eventify(evt, _this._getMousePoint));
+                    });
+                    this.node.addEventListener('touchstart', function (evt) {
+                        callback(_this._eventify(evt, _this._getTouchPoint));
+                    });
+                };
+                RenderTargetBase.prototype.addPointerMoveListener = function (callback) {
+                    var _this = this;
+                    this.node.addEventListener('mousemove', function (evt) {
+                        callback(_this._eventify(evt, _this._getMousePoint));
+                    });
+                    this.node.addEventListener('touchmove', function (evt) {
+                        callback(_this._eventify(evt, _this._getTouchPoint));
+                    });
+                };
+                RenderTargetBase.prototype.addPointerEndListener = function (callback) {
+                    // TODO: find a way to not need global listeners
+                    document.addEventListener('mouseup', callback);
+                    document.addEventListener('touchend', callback);
+                };
+                RenderTargetBase.prototype.getBoundingClientRect = function () {
+                    return this.node.getBoundingClientRect();
+                };
+                RenderTargetBase.prototype._eventify = function (evt, pointFunc) {
+                    var _this = this;
+                    return {
+                        getPoint: function () { return pointFunc.call(_this, evt); },
+                        preventDefault: function () { return evt.preventDefault(); }
+                    };
+                };
+                RenderTargetBase.prototype._getMousePoint = function (evt) {
+                    var _a = this.getBoundingClientRect(), left = _a.left, top = _a.top;
+                    var x = evt.clientX - left;
+                    var y = evt.clientY - top;
+                    return {
+                        x: x,
+                        y: y
+                    };
+                };
+                RenderTargetBase.prototype._getTouchPoint = function (evt) {
+                    var _a = this.getBoundingClientRect(), left = _a.left, top = _a.top;
+                    var x = evt.touches[0].clientX - left;
+                    var y = evt.touches[0].clientY - top;
+                    return {
+                        x: x,
+                        y: y
+                    };
+                };
+                return RenderTargetBase;
+            }());
+            var RenderTarget = /** @class */ (function (_super) {
+                __extends(RenderTarget, _super);
+                function RenderTarget(svg, defs) {
+                    var _this = _super.call(this, svg) || this;
+                    _this.svg = svg;
+                    _this.defs = defs;
+                    if ('createSVGPoint' in svg) {
+                        _this._pt = svg.createSVGPoint();
+                    }
+                    return _this;
+                }
+                RenderTarget.init = function (elmOrId, width, height) {
+                    if (width === void 0) { width = '100%'; }
+                    if (height === void 0) { height = '100%'; }
+                    var element = (function () {
+                        if (typeof elmOrId === 'string') {
+                            return document.getElementById(elmOrId);
+                        }
+                        return elmOrId;
+                    })();
+                    if (!element) {
+                        throw new Error("HanziWriter target element not found: " + elmOrId);
+                    }
+                    var nodeType = element.nodeName.toUpperCase();
+                    var svg = (function () {
+                        if (nodeType === 'SVG' || nodeType === 'G') {
+                            return element;
+                        }
+                        else {
+                            var svg_1 = createElm('svg');
+                            element.appendChild(svg_1);
+                            return svg_1;
+                        }
+                    })();
+                    attrs(svg, {
+                        width: width,
+                        height: height
+                    });
+                    var defs = createElm('defs');
+                    svg.appendChild(defs);
+                    return new RenderTarget(svg, defs);
+                };
+                RenderTarget.prototype.createSubRenderTarget = function () {
+                    var group = createElm('g');
+                    this.svg.appendChild(group);
+                    return new RenderTarget(group, this.defs);
+                };
+                RenderTarget.prototype._getMousePoint = function (evt) {
+                    var _a;
+                    if (this._pt) {
+                        this._pt.x = evt.clientX;
+                        this._pt.y = evt.clientY;
+                        if ('getScreenCTM' in this.node) {
+                            var localPt = this._pt.matrixTransform((_a = this.node.getScreenCTM()) === null || _a === void 0 ? void 0 : _a.inverse());
+                            return {
+                                x: localPt.x,
+                                y: localPt.y
+                            };
+                        }
+                    }
+                    return _super.prototype._getMousePoint.call(this, evt);
+                };
+                RenderTarget.prototype._getTouchPoint = function (evt) {
+                    var _a;
+                    if (this._pt) {
+                        this._pt.x = evt.touches[0].clientX;
+                        this._pt.y = evt.touches[0].clientY;
+                        if ('getScreenCTM' in this.node) {
+                            var localPt = this._pt.matrixTransform((_a = this.node.getScreenCTM()) === null || _a === void 0 ? void 0 : _a.inverse());
+                            return {
+                                x: localPt.x,
+                                y: localPt.y
+                            };
+                        }
+                    }
+                    return _super.prototype._getTouchPoint.call(this, evt);
+                };
+                return RenderTarget;
+            }(RenderTargetBase));
+            var svgRenderer = {
+                HanziWriterRenderer: HanziWriterRenderer,
+                createRenderTarget: RenderTarget.init
+            };
+            var drawPath = function (ctx, points) {
+                ctx.beginPath();
+                var start = points[0];
+                var remainingPoints = points.slice(1);
+                ctx.moveTo(start.x, start.y);
+                for (var _i = 0, remainingPoints_1 = remainingPoints; _i < remainingPoints_1.length; _i++) {
+                    var point = remainingPoints_1[_i];
+                    ctx.lineTo(point.x, point.y);
+                }
+                ctx.stroke();
+            };
+            /**
+             * Break a path string into a series of canvas path commands
+             *
+             * Note: only works with the subset of SVG paths used by MakeMeAHanzi data
+             * @param pathString
+             */
+            var pathStringToCanvas = function (pathString) {
+                var pathParts = pathString.split(/(^|\s+)(?=[A-Z])/).filter(function (part) { return part !== ' '; });
+                var commands = [function (ctx) { return ctx.beginPath(); }];
+                var _loop_2 = function (part) {
+                    var _a = part.split(/\s+/), cmd = _a[0], rawParams = _a.slice(1);
+                    var params = rawParams.map(function (param) { return parseFloat(param); });
+                    if (cmd === 'M') {
+                        commands.push(function (ctx) { return ctx.moveTo.apply(ctx, params); });
+                    }
+                    else if (cmd === 'L') {
+                        commands.push(function (ctx) { return ctx.lineTo.apply(ctx, params); });
+                    }
+                    else if (cmd === 'C') {
+                        commands.push(function (ctx) { return ctx.bezierCurveTo.apply(ctx, params); });
+                    }
+                    else if (cmd === 'Q') {
+                        commands.push(function (ctx) { return ctx.quadraticCurveTo.apply(ctx, params); });
+                    }
+                    else
+                        ;
+                };
+                for (var _i = 0, pathParts_1 = pathParts; _i < pathParts_1.length; _i++) {
+                    var part = pathParts_1[_i];
+                    _loop_2(part);
+                }
+                return function (ctx) { return commands.forEach(function (cmd) { return cmd(ctx); }); };
+            };
+            /** this is a stroke composed of several stroke parts */
+            var StrokeRenderer$1 = /** @class */ (function (_super) {
+                __extends(StrokeRenderer$1, _super);
+                function StrokeRenderer$1(stroke, usePath2D) {
+                    if (usePath2D === void 0) { usePath2D = true; }
+                    var _this = _super.call(this, stroke) || this;
+                    if (usePath2D && Path2D) {
+                        _this._path2D = new Path2D(_this.stroke.path);
+                    }
+                    else {
+                        _this._pathCmd = pathStringToCanvas(_this.stroke.path);
+                    }
+                    _this._extendedMaskPoints = extendStart(_this.stroke.points, StrokeRendererBase.STROKE_WIDTH / 2);
+                    return _this;
+                }
+                StrokeRenderer$1.prototype.render = function (ctx, props) {
+                    var _a;
+                    if (props.opacity < 0.05) {
+                        return;
+                    }
+                    ctx.save();
+                    if (this._path2D) {
+                        ctx.clip(this._path2D);
+                    }
+                    else {
+                        (_a = this._pathCmd) === null || _a === void 0 ? void 0 : _a.call(this, ctx); // wechat bugs out if the clip path isn't stroked or filled
+                        ctx.globalAlpha = 0;
+                        ctx.stroke();
+                        ctx.clip();
+                    }
+                    var _b = this._getColor(props), r = _b.r, g = _b.g, b = _b.b, a = _b.a;
+                    var color = a === 1 ? "rgb(" + r + "," + g + "," + b + ")" : "rgb(" + r + "," + g + "," + b + "," + a + ")";
+                    var dashOffset = this._getStrokeDashoffset(props.displayPortion);
+                    ctx.globalAlpha = props.opacity;
+                    ctx.strokeStyle = color;
+                    ctx.fillStyle = color;
+                    ctx.lineWidth = StrokeRendererBase.STROKE_WIDTH;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round'; // wechat sets dashOffset as a second param here. Should be harmless for browsers to add here too
+                    // @ts-ignore
+                    ctx.setLineDash([this._pathLength, this._pathLength], dashOffset);
+                    ctx.lineDashOffset = dashOffset;
+                    drawPath(ctx, this._extendedMaskPoints);
+                    ctx.restore();
+                };
+                return StrokeRenderer$1;
+            }(StrokeRendererBase));
+            var CharacterRenderer$1 = /** @class */ (function () {
+                function CharacterRenderer$1(character) {
+                    this._strokeRenderers = character.strokes.map(function (stroke) { return new StrokeRenderer$1(stroke); });
+                }
+                CharacterRenderer$1.prototype.render = function (ctx, props) {
+                    if (props.opacity < 0.05)
+                        return;
+                    var opacity = props.opacity, strokeColor = props.strokeColor, radicalColor = props.radicalColor, strokes = props.strokes;
+                    for (var i = 0; i < this._strokeRenderers.length; i++) {
+                        this._strokeRenderers[i].render(ctx, {
+                            strokeColor: strokeColor,
+                            radicalColor: radicalColor,
+                            opacity: strokes[i].opacity * opacity,
+                            displayPortion: strokes[i].displayPortion || 0
+                        });
+                    }
+                };
+                return CharacterRenderer$1;
+            }());
+            function renderUserStroke(ctx, props) {
+                if (props.opacity < 0.05) {
+                    return;
+                }
+                var opacity = props.opacity, strokeWidth = props.strokeWidth, strokeColor = props.strokeColor, points = props.points;
+                var r = strokeColor.r, g = strokeColor.g, b = strokeColor.b, a = strokeColor.a;
+                ctx.save();
+                ctx.globalAlpha = opacity;
+                ctx.lineWidth = strokeWidth;
+                ctx.strokeStyle = "rgba(" + r + "," + g + "," + b + "," + a + ")";
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                drawPath(ctx, points);
+                ctx.restore();
+            }
+            var HanziWriterRenderer$1 = /** @class */ (function () {
+                function HanziWriterRenderer$1(character, positioner) {
+                    this.destroy = noop;
+                    this._character = character;
+                    this._positioner = positioner;
+                    this._mainCharRenderer = new CharacterRenderer$1(character);
+                    this._outlineCharRenderer = new CharacterRenderer$1(character);
+                    this._highlightCharRenderer = new CharacterRenderer$1(character);
+                }
+                HanziWriterRenderer$1.prototype.mount = function (target) {
+                    this._target = target;
+                };
+                HanziWriterRenderer$1.prototype._animationFrame = function (cb) {
+                    var _a = this._positioner, width = _a.width, height = _a.height, scale = _a.scale, xOffset = _a.xOffset, yOffset = _a.yOffset;
+                    var ctx = this._target.getContext();
+                    ctx.clearRect(0, 0, width, height);
+                    ctx.save();
+                    ctx.translate(xOffset, height - yOffset);
+                    ctx.transform(1, 0, 0, -1, 0, 0);
+                    ctx.scale(scale, scale);
+                    cb(ctx);
+                    ctx.restore(); // @ts-expect-error Verify if this is still needed for the "wechat miniprogram".
+                    if (ctx.draw) {
+                        // @ts-expect-error
+                        ctx.draw();
+                    }
+                };
+                HanziWriterRenderer$1.prototype.render = function (props) {
+                    var _this = this;
+                    var _a = props.character, outline = _a.outline, main = _a.main, highlight = _a.highlight;
+                    var _b = props.options, outlineColor = _b.outlineColor, strokeColor = _b.strokeColor, radicalColor = _b.radicalColor, highlightColor = _b.highlightColor, drawingColor = _b.drawingColor, drawingWidth = _b.drawingWidth;
+                    this._animationFrame(function (ctx) {
+                        _this._outlineCharRenderer.render(ctx, {
+                            opacity: outline.opacity,
+                            strokes: outline.strokes,
+                            strokeColor: outlineColor
+                        });
+                        _this._mainCharRenderer.render(ctx, {
+                            opacity: main.opacity,
+                            strokes: main.strokes,
+                            strokeColor: strokeColor,
+                            radicalColor: radicalColor
+                        });
+                        _this._highlightCharRenderer.render(ctx, {
+                            opacity: highlight.opacity,
+                            strokes: highlight.strokes,
+                            strokeColor: highlightColor
+                        });
+                        var userStrokes = props.userStrokes || {};
+                        for (var userStrokeId in userStrokes) {
+                            var userStroke = userStrokes[userStrokeId];
+                            if (userStroke) {
+                                var userStrokeProps = __assign({ strokeWidth: drawingWidth, strokeColor: drawingColor }, userStroke);
+                                renderUserStroke(ctx, userStrokeProps);
+                            }
+                        }
+                    });
+                };
+                return HanziWriterRenderer$1;
+            }());
+            var RenderTarget$1 = /** @class */ (function (_super) {
+                __extends(RenderTarget$1, _super);
+                function RenderTarget$1(canvas) {
+                    return _super.call(this, canvas) || this;
+                }
+                RenderTarget$1.init = function (elmOrId, width, height) {
+                    if (width === void 0) { width = '100%'; }
+                    if (height === void 0) { height = '100%'; }
+                    var element = (function () {
+                        if (typeof elmOrId === 'string') {
+                            return document.getElementById(elmOrId);
+                        }
+                        return elmOrId;
+                    })();
+                    if (!element) {
+                        throw new Error("HanziWriter target element not found: " + elmOrId);
+                    }
+                    var nodeType = element.nodeName.toUpperCase();
+                    var canvas = (function () {
+                        if (nodeType === 'CANVAS') {
+                            return element;
+                        }
+                        var canvas = document.createElement('canvas');
+                        element.appendChild(canvas);
+                        return canvas;
+                    })();
+                    canvas.setAttribute('width', width);
+                    canvas.setAttribute('height', height);
+                    return new RenderTarget$1(canvas);
+                };
+                RenderTarget$1.prototype.getContext = function () {
+                    return this.node.getContext('2d');
+                };
+                return RenderTarget$1;
+            }(RenderTargetBase));
+            var canvasRenderer = {
+                HanziWriterRenderer: HanziWriterRenderer$1,
+                createRenderTarget: RenderTarget$1.init
+            };
+            var VERSION = '2.0';
+            var getCharDataUrl = function (char) { return "https://cdn.jsdelivr.net/npm/hanzi-writer-data@" + VERSION + "/" + char + ".json"; };
+            var defaultCharDataLoader = function (char, onLoad, onError) {
+                // load char data from hanziwriter cdn (currently hosted on jsdelivr)
+                var xhr = new XMLHttpRequest();
+                if (xhr.overrideMimeType) {
+                    // IE 9 and 10 don't seem to support this...
+                    xhr.overrideMimeType('application/json');
+                }
+                xhr.open('GET', getCharDataUrl(char), true);
+                xhr.onerror = function (event) {
+                    onError(xhr, event);
+                };
+                xhr.onreadystatechange = function () {
+                    // TODO: error handling
+                    if (xhr.readyState !== 4)
+                        return;
+                    if (xhr.status === 200) {
+                        onLoad(JSON.parse(xhr.responseText));
+                    }
+                    else if (xhr.status !== 0 && onError) {
+                        onError(xhr);
+                    }
+                };
+                xhr.send(null);
+            };
+            var defaultOptions = {
+                charDataLoader: defaultCharDataLoader,
+                onLoadCharDataError: null,
+                onLoadCharDataSuccess: null,
+                showOutline: true,
+                showCharacter: true,
+                renderer: 'svg',
+                // positioning options
+                width: 0,
+                height: 0,
+                padding: 20,
+                // animation options
+                strokeAnimationSpeed: 1,
+                strokeFadeDuration: 400,
+                strokeHighlightDuration: 200,
+                strokeHighlightSpeed: 2,
+                delayBetweenStrokes: 1000,
+                delayBetweenLoops: 2000,
+                // colors
+                strokeColor: '#555',
+                radicalColor: null,
+                highlightColor: '#AAF',
+                outlineColor: '#DDD',
+                drawingColor: '#333',
+                // quiz options
+                leniency: 1,
+                showHintAfterMisses: 3,
+                highlightOnComplete: true,
+                highlightCompleteColor: null,
+                // undocumented obscure options
+                drawingFadeDuration: 300,
+                drawingWidth: 4,
+                strokeWidth: 2,
+                outlineWidth: 2,
+                rendererOverride: {}
+            };
+            var LoadingManager = /** @class */ (function () {
+                function LoadingManager(options) {
+                    this._loadCounter = 0;
+                    this._isLoading = false;
+                    /** use this to attribute to determine if there was a problem with loading */
+                    this.loadingFailed = false;
+                    this._options = options;
+                }
+                LoadingManager.prototype._debouncedLoad = function (char, count) {
+                    var _this = this;
+                    // these wrappers ignore all responses except the most recent.
+                    var wrappedResolve = function (data) {
+                        var _a;
+                        if (count === _this._loadCounter) {
+                            (_a = _this._resolve) === null || _a === void 0 ? void 0 : _a.call(_this, data);
+                        }
+                    };
+                    var wrappedReject = function (reason) {
+                        var _a;
+                        if (count === _this._loadCounter) {
+                            (_a = _this._reject) === null || _a === void 0 ? void 0 : _a.call(_this, reason);
+                        }
+                    };
+                    var returnedData = this._options.charDataLoader(char, wrappedResolve, wrappedReject);
+                    if (returnedData) {
+                        if ('then' in returnedData) {
+                            returnedData.then(wrappedResolve).catch(wrappedReject);
+                        }
+                        else {
+                            wrappedResolve(returnedData);
+                        }
+                    }
+                };
+                LoadingManager.prototype._setupLoadingPromise = function () {
+                    var _this = this;
+                    return new Promise(function (resolve, reject) {
+                        _this._resolve = resolve;
+                        _this._reject = reject;
+                    }).then(function (data) {
+                        var _a, _b;
+                        _this._isLoading = false;
+                        (_b = (_a = _this._options).onLoadCharDataSuccess) === null || _b === void 0 ? void 0 : _b.call(_a, data);
+                        return data;
+                    }).catch(function (reason) {
+                        _this._isLoading = false;
+                        _this.loadingFailed = true; // If the user has provided an "onLoadCharDataError", call this function
+                        // Otherwise, throw the promise
+                        if (_this._options.onLoadCharDataError) {
+                            _this._options.onLoadCharDataError(reason);
+                            return;
+                        } // If error callback wasn't provided, throw an error so the developer will be aware something went wrong
+                        if (reason instanceof Error) {
+                            throw reason;
+                        }
+                        var err = new Error("Failed to load char data for " + _this._loadingChar);
+                        err.reason = reason;
+                        throw err;
+                    });
+                };
+                LoadingManager.prototype.loadCharData = function (char) {
+                    this._loadingChar = char;
+                    var promise = this._setupLoadingPromise();
+                    this.loadingFailed = false;
+                    this._isLoading = true;
+                    this._loadCounter++;
+                    this._debouncedLoad(char, this._loadCounter);
+                    return promise;
+                };
+                return LoadingManager;
+            }());
+            var HanziWriter = /** @class */ (function () {
+                function HanziWriter(element, options) {
+                    if (options === void 0) { options = {}; }
+                    var _a = options.renderer === 'canvas' ? canvasRenderer : svgRenderer, HanziWriterRenderer = _a.HanziWriterRenderer, createRenderTarget = _a.createRenderTarget;
+                    var rendererOverride = options.rendererOverride || {};
+                    this._renderer = {
+                        HanziWriterRenderer: rendererOverride.HanziWriterRenderer || HanziWriterRenderer,
+                        createRenderTarget: rendererOverride.createRenderTarget || createRenderTarget
+                    }; // wechat miniprogram component needs direct access to the render target, so this is public
+                    this.target = this._renderer.createRenderTarget(element, options.width, options.height);
+                    this._options = this._assignOptions(options);
+                    this._loadingManager = new LoadingManager(this._options);
+                    this._setupListeners();
+                }
+                /** Main entry point */
+                HanziWriter.create = function (element, character, options) {
+                    var writer = new HanziWriter(element, options);
+                    writer.setCharacter(character);
+                    return writer;
+                };
+                HanziWriter.loadCharacterData = function (character, options) {
+                    if (options === void 0) { options = {}; }
+                    var loadingManager = (function () {
+                        var _loadingManager = HanziWriter._loadingManager, _loadingOptions = HanziWriter._loadingOptions;
+                        if ((_loadingManager === null || _loadingManager === void 0 ? void 0 : _loadingManager._loadingChar) === character && _loadingOptions === options) {
+                            return _loadingManager;
+                        }
+                        return new LoadingManager(__assign(__assign({}, defaultOptions), options));
+                    })();
+                    HanziWriter._loadingManager = loadingManager;
+                    HanziWriter._loadingOptions = options;
+                    return loadingManager.loadCharData(character);
+                };
+                HanziWriter.getScalingTransform = function (width, height, padding) {
+                    if (padding === void 0) { padding = 0; }
+                    var positioner = new Positioner({
+                        width: width,
+                        height: height,
+                        padding: padding
+                    });
+                    return {
+                        x: positioner.xOffset,
+                        y: positioner.yOffset,
+                        scale: positioner.scale,
+                        transform: trim("\n        translate(" + positioner.xOffset + ", " + (positioner.height - positioner.yOffset) + ")\n        scale(" + positioner.scale + ", " + -1 * positioner.scale + ")\n      ").replace(/\s+/g, ' ')
+                    };
+                };
+                HanziWriter.prototype.showCharacter = function (options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    this._options.showCharacter = true;
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.run(showCharacter('main', _this._character, typeof options.duration === 'number' ? options.duration : _this._options.strokeFadeDuration)).then(function (res) {
+                        var _a;
+                        (_a = options.onComplete) === null || _a === void 0 ? void 0 : _a.call(options, res);
+                        return res;
+                    }); });
+                };
+                HanziWriter.prototype.hideCharacter = function (options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    this._options.showCharacter = false;
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.run(hideCharacter('main', _this._character, typeof options.duration === 'number' ? options.duration : _this._options.strokeFadeDuration)).then(function (res) {
+                        var _a;
+                        (_a = options.onComplete) === null || _a === void 0 ? void 0 : _a.call(options, res);
+                        return res;
+                    }); });
+                };
+                HanziWriter.prototype.animateCharacter = function (options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    this.cancelQuiz();
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.run(animateCharacter('main', _this._character, _this._options.strokeFadeDuration, _this._options.strokeAnimationSpeed, _this._options.delayBetweenStrokes)).then(function (res) {
+                        var _a;
+                        (_a = options.onComplete) === null || _a === void 0 ? void 0 : _a.call(options, res);
+                        return res;
+                    }); });
+                };
+                HanziWriter.prototype.animateStroke = function (strokeNum, options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    this.cancelQuiz();
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.run(animateSingleStroke('main', _this._character, strokeNum, _this._options.strokeAnimationSpeed)).then(function (res) {
+                        var _a;
+                        (_a = options.onComplete) === null || _a === void 0 ? void 0 : _a.call(options, res);
+                        return res;
+                    }); });
+                };
+                HanziWriter.prototype.highlightStroke = function (strokeNum, options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    var promise = function () {
+                        if (!_this._character || !_this._renderState) {
+                            return;
+                        }
+                        return _this._renderState.run(highlightStroke(_this._character.strokes[strokeNum], colorStringToVals(_this._options.highlightColor), _this._options.strokeHighlightSpeed)).then(function (res) {
+                            var _a;
+                            (_a = options.onComplete) === null || _a === void 0 ? void 0 : _a.call(options, res);
+                            return res;
+                        });
+                    };
+                    return this._withData(promise);
+                };
+                HanziWriter.prototype.loopCharacterAnimation = function () {
+                    return __awaiter(this, void 0, void 0, function () {
+                        var _this = this;
+                        return __generator(this, function (_a) {
+                            this.cancelQuiz();
+                            return [2 /*return*/, this._withData(function () { return _this._renderState.run(animateCharacterLoop('main', _this._character, _this._options.strokeFadeDuration, _this._options.strokeAnimationSpeed, _this._options.delayBetweenStrokes, _this._options.delayBetweenLoops), {
+                                    loop: true
+                                }); })];
+                        });
+                    });
+                };
+                HanziWriter.prototype.pauseAnimation = function () {
+                    var _this = this;
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.pauseAll(); });
+                };
+                HanziWriter.prototype.resumeAnimation = function () {
+                    var _this = this;
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.resumeAll(); });
+                };
+                HanziWriter.prototype.showOutline = function (options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    this._options.showOutline = true;
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.run(showCharacter('outline', _this._character, typeof options.duration === 'number' ? options.duration : _this._options.strokeFadeDuration)).then(function (res) {
+                        var _a;
+                        (_a = options.onComplete) === null || _a === void 0 ? void 0 : _a.call(options, res);
+                        return res;
+                    }); });
+                };
+                HanziWriter.prototype.hideOutline = function (options) {
+                    var _this = this;
+                    if (options === void 0) { options = {}; }
+                    this._options.showOutline = false;
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.run(hideCharacter('outline', _this._character, typeof options.duration === 'number' ? options.duration : _this._options.strokeFadeDuration)).then(function (res) {
+                        var _a;
+                        (_a = options.onComplete) === null || _a === void 0 ? void 0 : _a.call(options, res);
+                        return res;
+                    }); });
+                };
+                HanziWriter.prototype.updateColor = function (colorName, colorVal, options) {
+                    var _this = this;
+                    var _a;
+                    if (options === void 0) { options = {}; }
+                    var mutations = [];
+                    var fixedColorVal = (function () {
+                        // If we're removing radical color, tween it to the stroke color
+                        if (colorName === 'radicalColor' && !colorVal) {
+                            return _this._options.strokeColor;
+                        }
+                        return colorVal;
+                    })();
+                    var mappedColor = colorStringToVals(fixedColorVal);
+                    this._options[colorName] = colorVal;
+                    var duration = (_a = options.duration) !== null && _a !== void 0 ? _a : this._options.strokeFadeDuration;
+                    mutations = mutations.concat(updateColor(colorName, mappedColor, duration)); // make sure to set radicalColor back to null after the transition finishes if val == null
+                    if (colorName === 'radicalColor' && !colorVal) {
+                        mutations = mutations.concat(updateColor(colorName, null, 0));
+                    }
+                    return this._withData(function () { var _a; return (_a = _this._renderState) === null || _a === void 0 ? void 0 : _a.run(mutations).then(function (res) {
+                        var _a;
+                        (_a = options.onComplete) === null || _a === void 0 ? void 0 : _a.call(options, res);
+                        return res;
+                    }); });
+                };
+                HanziWriter.prototype.quiz = function (quizOptions) {
+                    var _this = this;
+                    if (quizOptions === void 0) { quizOptions = {}; }
+                    return this._withData(function () { return __awaiter(_this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            if (this._character && this._renderState && this._positioner) {
+                                this.cancelQuiz();
+                                this._quiz = new Quiz(this._character, this._renderState, this._positioner);
+                                this._options = __assign(__assign({}, this._options), quizOptions);
+                                this._quiz.startQuiz(this._options);
+                            }
+                            return [2 /*return*/];
+                        });
+                    }); });
+                };
+                HanziWriter.prototype.cancelQuiz = function () {
+                    if (this._quiz) {
+                        this._quiz.cancel();
+                        this._quiz = undefined;
+                    }
+                };
+                HanziWriter.prototype.setCharacter = function (char) {
+                    var _this = this;
+                    this.cancelQuiz();
+                    this._char = char;
+                    if (this._hanziWriterRenderer) {
+                        this._hanziWriterRenderer.destroy();
+                    }
+                    if (this._renderState) {
+                        this._renderState.cancelAll();
+                    }
+                    this._hanziWriterRenderer = null;
+                    this._withDataPromise = this._loadingManager.loadCharData(char).then(function (pathStrings) {
+                        // if "pathStrings" isn't set, ".catch()"" was probably called and loading likely failed
+                        if (!pathStrings || _this._loadingManager.loadingFailed) {
+                            return;
+                        }
+                        _this._character = parseCharData(char, pathStrings);
+                        var _a = _this._options, width = _a.width, height = _a.height, padding = _a.padding;
+                        _this._positioner = new Positioner({
+                            width: width,
+                            height: height,
+                            padding: padding
+                        });
+                        var hanziWriterRenderer = new _this._renderer.HanziWriterRenderer(_this._character, _this._positioner);
+                        _this._hanziWriterRenderer = hanziWriterRenderer;
+                        _this._renderState = new RenderState(_this._character, _this._options, function (nextState) { return hanziWriterRenderer.render(nextState); });
+                        _this._hanziWriterRenderer.mount(_this.target);
+                        _this._hanziWriterRenderer.render(_this._renderState.state);
+                    });
+                    return this._withDataPromise;
+                };
+                HanziWriter.prototype._assignOptions = function (options) {
+                    var mergedOptions = __assign(__assign({}, defaultOptions), options); // backfill strokeAnimationSpeed if deprecated strokeAnimationDuration is provided instead
+                    if (options.strokeAnimationDuration && !options.strokeAnimationSpeed) {
+                        mergedOptions.strokeAnimationSpeed = 500 / options.strokeAnimationDuration;
+                    }
+                    if (options.strokeHighlightDuration && !options.strokeHighlightSpeed) {
+                        mergedOptions.strokeHighlightSpeed = 500 / mergedOptions.strokeHighlightDuration;
+                    }
+                    if (!options.highlightCompleteColor) {
+                        mergedOptions.highlightCompleteColor = mergedOptions.highlightColor;
+                    }
+                    return this._fillWidthAndHeight(mergedOptions);
+                };
+                /** returns a new options object with width and height filled in if missing */
+                HanziWriter.prototype._fillWidthAndHeight = function (options) {
+                    var filledOpts = __assign({}, options);
+                    if (filledOpts.width && !filledOpts.height) {
+                        filledOpts.height = filledOpts.width;
+                    }
+                    else if (filledOpts.height && !filledOpts.width) {
+                        filledOpts.width = filledOpts.height;
+                    }
+                    else if (!filledOpts.width && !filledOpts.height) {
+                        var _a = this.target.getBoundingClientRect(), width = _a.width, height = _a.height;
+                        var minDim = Math.min(width, height);
+                        filledOpts.width = minDim;
+                        filledOpts.height = minDim;
+                    }
+                    return filledOpts;
+                };
+                HanziWriter.prototype._withData = function (func) {
+                    var _this = this;
+                    // if this._loadingManager.loadingFailed, then loading failed before this method was called
+                    if (this._loadingManager.loadingFailed) {
+                        throw Error('Failed to load character data. Call setCharacter and try again.');
+                    }
+                    if (this._withDataPromise) {
+                        return this._withDataPromise.then(function () {
+                            if (!_this._loadingManager.loadingFailed) {
+                                return func();
+                            }
+                        });
+                    }
+                    return Promise.resolve().then(func);
+                };
+                HanziWriter.prototype._setupListeners = function () {
+                    var _this = this;
+                    this.target.addPointerStartListener(function (evt) {
+                        if (_this._quiz) {
+                            evt.preventDefault();
+                            _this._quiz.startUserStroke(evt.getPoint());
+                        }
+                    });
+                    this.target.addPointerMoveListener(function (evt) {
+                        if (_this._quiz) {
+                            evt.preventDefault();
+                            _this._quiz.continueUserStroke(evt.getPoint());
+                        }
+                    });
+                    this.target.addPointerEndListener(function () {
+                        var _a;
+                        (_a = _this._quiz) === null || _a === void 0 ? void 0 : _a.endUserStroke();
+                    });
+                };
+                return HanziWriter;
+            }());
+            /** Singleton instance of LoadingManager. Only set in `loadCharacterData` */
+            HanziWriter._loadingManager = null;
+            /** Singleton loading options. Only set in `loadCharacterData` */
+            HanziWriter._loadingOptions = null;
+            return HanziWriter;
+        }());
+
+    </script>
+</div>
+
+<script>
+
+var JSONData = JSON.parse('{{HanziData}}');
+var strokeNum=0;
+var writer = HanziWriter.create('kanji-holder', '{{Kanji}}', {
+  width: 300,
+  height: 300,
+  strokeColor: '#C695C6',
+  padding: 0,
+showCharacter: false,
+showOutline: false,
+  showHintAfterMisses:3,
+drawingWidth:50,
+  charDataLoader: function() {
+    return JSONData;
+  }
+});
+
+writer.quiz({
+
+onComplete: function(summaryData) {
+setTimeout(function(){
+
+clickFunction();
+}, 200);
+
+
+},
+
+onCorrectStroke: function(strokeData) {strokeNum++;}
+
+});
+
+function clickFunction(){
+  // Write the button's text into the type:Answer field.
+  var input =  document.getElementById("typeans");
+  input.value = this.id;
+
+  // Simulate pressing enter on the input field.
+  var ev = document.createEvent('Event');
+  ev.initEvent('keypress');
+  ev.which = ev.keyCode = 13;
+  input.dispatchEvent(ev);
+};
+</script>
+
+<div style="display:none;">
+{{type:Kanji}}
+</div>
+
+{{/HanziData}}
