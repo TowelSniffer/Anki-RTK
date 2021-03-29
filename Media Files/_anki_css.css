@@ -104,17 +104,17 @@ max-width:95%;
 
 
 /* STYLE FOR CLOZE DELETIONS */
-.cloze, .cloze b, .cloze u, .cloze i, .night_mode .cloze, .cloze b, .cloze u, .cloze i { font-weight: 400; color: #9F99F4 ;}
-.frontbg .cloze, .cloze b, .cloze u, .cloze i, .night_mode .frontbg .cloze, .cloze b, .cloze u, .cloze i, .extrabg .cloze, .cloze b, .cloze u, .cloze i, .night_mode .extrabg .cloze, .cloze b, .cloze u, .cloze i { font-weight: 400; color: #605B98 ;}
+.cloze, .cloze b, .cloze u, .cloze i, .night_mode .cloze, .night_mode .cloze b, .night_mode .cloze u, .night_mode .cloze i { font-weight: 400; color: #9F99F4!important;}
+.frontbg .cloze, .cloze b, .cloze u, .cloze i, .night_mode .frontbg .cloze, .cloze b, .cloze u, .cloze i, .extrabg .cloze, .cloze b, .cloze u, .cloze i, .night_mode .extrabg .cloze, .cloze b, .cloze u, .cloze i { font-weight: 400; color: #605B98!important;}
 
 /* COLOR ACCENTS FOR BOLD-ITALICS-UNDERLINE */
 
-b, .night_mode b { color: #C695C6; font-weight: 400;} /* BOLD STYLE */
-.frontbg b, .night_mode .frontbg b, .extrabg b, .night_mode .extrabg b { color: #914396; font-weight: 400;} /* BOLD STYLE */
+b, .night_mode b, strong, .night_mode strong { color: #C695C6; font-weight: 400;} /* BOLD STYLE */
+.frontbg b, .night_mode .frontbg b, .extrabg b, .night_mode .extrabg b, .frontbg strong, .night_mode .frontbg strong, .extrabg strong, .night_mode .extrabg strong { color: #914396; font-weight: 400;} /* BOLD STYLE */
 u, .night_mode u { text-decoration: none; color: #5EB3B3;} /* UNDERLINE STYLE */
 .frontbg u, .night_mode .frontbg u, .extrabg u, .night_mode .extrabg u { text-decoration: none; color: #066D74;} /* UNDERLINE STYLE */
-i, .night_mode i  { color: #FE7C71; font-style: normal;} /* ITALICS STYLE */
-.frontbg i, .night_mode .frontbg i, .extrabg i, .night_mode .extrabg i  { color: #B3342E; font-style: normal;} /* ITALICS STYLE */
+i, .night_mode i, em, .night_mode em  { color: #FE7C71; font-style: normal;} /* ITALICS STYLE */
+.frontbg i, .night_mode .frontbg i, .extrabg i, .night_mode .extrabg i, .frontbg em, .night_mode .frontbg em, .extrabg em, .night_mode .extrabg em  { color: #B3342E; font-style: normal;} /* ITALICS STYLE */
 a, .night_mode a { color: LightGray; text-decoration: none; font-style: normal; } /* LINK STYLE */
 .frontbg a, .night_mode .frontbg a, .extrabg a, .night_mode .extrabg a { color: #666161; text-decoration: none; font-style: normal; } /* LINK STYLE */
 
