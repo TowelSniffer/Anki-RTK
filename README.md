@@ -46,3 +46,6 @@ https://github.com/SimonLammer/anki-persistenceanki-persistence
 
 #### MEMRISE KANJAX with KOOHI
 https://greasyfork.org/en/scripts/31169-memrise-kanjax-with-koohi-v3/code
+
+#### ultimate geography for the plagiarized readme
+https://github.com/anki-geo/ultimate-geography
