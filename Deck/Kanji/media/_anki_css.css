@@ -105,12 +105,12 @@ img {
 /* STYLE FOR CLOZE DELETIONS */
 .backbg .cloze, .backbg .cloze * {
   font-weight: 600;
-  color: #9F99F4 !important;
+  color: #FE7C71 !important;
 }
 
 .frontbg .cloze, .extrabg .cloze, .frontbg .cloze *, .extrabg .cloze * {
   font-weight: 600;
-  color: #605B98 !important;
+  color: #B3342E !important;
 }
 
 /* COLOR ACCENTS FOR BOLD-ITALICS-UNDERLINE */
@@ -139,12 +139,14 @@ img {
 
 /* UNDERLINE STYLE */
 .backbg i, .backbg em {
-  color: #FE7C71;
+  color: #9F99F4;
+  font-style: normal;
 }
 
 /* ITALICS STYLE */
 .frontbg i, .extrabg i, .frontbg em, .extrabg em {
-  color: #B3342E;
+  color: #605B98;
+  font-style: normal;
 }
 
 /* ITALICS STYLE */
@@ -332,12 +334,12 @@ details summary {
 }
 
 .backbg pre>code>.cloze {
-  color: #605B98 !important;
+  color: #B3342E !important;
   /* FONT COLOR */
 }
 
 .frontbg pre>code .cloze, .extrabg pre>code .cloze, .frontbg pre>code .cloze>span, .extrabg pre>code .cloze>span {
-  color: #9F99F4 !important;
+  color: #FE7C71 !important;
   /* FONT COLOR */
 }
 
