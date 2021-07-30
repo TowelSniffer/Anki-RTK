@@ -7,6 +7,7 @@ body {
 }
 
 .card {
+
   position: absolute;
   top: 0;
   left: 0;
@@ -28,10 +29,7 @@ body {
 .frontbg {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 25px;
-  -webkit-box-shadow: 3px -5px 5px 3px rgba(0, 0, 0, .5);
-  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  box-shadow: 3px -5px 5px 3px rgba(0, 0, 0, .5);
+  padding: 1em;
   color: #333B45;
   /* FONT COLOR */
   background-color: #D7DEE9;
@@ -44,10 +42,7 @@ body {
 .backbg {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: 25px;
-  -webkit-box-shadow: 3px 5px 5px 3px rgba(0, 0, 0, .5);
-  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  box-shadow: 3px 5px 5px 3px rgba(0, 0, 0, .5);
+  padding: 1em;
   color: #D7DEE9;
   /* FONT COLOR */
   background-color: #333B45;
