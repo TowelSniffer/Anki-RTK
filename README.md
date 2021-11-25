@@ -1,3 +1,5 @@
+*No Longer Maintained as I don't use this anymore*
+
 # Anki-RTK
 An RTK deck with Hanzi Writer Implemented for touch screen
 
